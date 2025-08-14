@@ -15,6 +15,9 @@ import DBImageDark from "@/assets/images/landing/dbDark.svg"
 import DBImage from "@/assets/images/landing/dbLight.svg"
 ---
 <div class="header_container">
+  
+
+
   <div class="header-left">
     <div class="title">
       ORM for you to <span class="settle">settle<Image src={CrossOutImage} alt="cross-out" class="cross-out"/><span class="ship">ship ship ship</span></span>
@@ -92,7 +95,7 @@ import DBImage from "@/assets/images/landing/dbLight.svg"
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12" opacity="0.5"/><path fill="currentColor" d="M14.018 7.364a.75.75 0 1 0-1.449-.388l-2.588 9.66a.75.75 0 0 0 1.449.388z"/></svg>
           </div>
         </div>
-        <div class="header-button-text"><span>Search Docs</span></div>
+        <button class="header-button-text"><span>Search Docs</span></button>
         <div class="header-button-arrow">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -111,13 +114,19 @@ import DBImage from "@/assets/images/landing/dbLight.svg"
         </div>
         <div id="docsearch"></div>
       </div>
-      <button id="inkeepButton" class="header-button" data-inkeep-sidebar-chat-trigger="">
+
+
+      <button id="inkeepButton" class="header-button">
         <div class="header-button-image">
           <div class="header-button-image-learn">
+          <!-- Quickstart Chat code -->
+          <div style="display: flex; flex-direction: row; height: 100vh; max-height: 100vh; padding: 0; margin: 0; overflow: hidden;">
+          <div style="display: flex; flex-direction: column; height: 100vh; max-height: 100vh; padding: 0; margin: 0; overflow-y: auto; flex: 1;">
+
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 23c6.075 0 11-4.925 11-11S18.075 1 12 1S1 5.925 1 12c0 1.76.413 3.423 1.148 4.898c.195.392.26.84.147 1.263l-.655 2.448a1.43 1.43 0 0 0 1.75 1.751l2.45-.655a1.797 1.797 0 0 1 1.262.147A10.955 10.955 0 0 0 12 23" opacity="0.5"/><path fill="currentColor" d="M10.9 12a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 0 0-2.2 0m-4.4 0a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 0 0-2.2 0m8.8 0a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 0 0-2.2 0"/></svg>
           </div>
         </div>
-        <div class="header-button-text"><span>Ask Docs</span></div>
+        <div class="header-button-text" data-inkeep-sidebar-chat-trigger="">Ask Docs</div>
         <div class="header-button-arrow">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -135,6 +144,26 @@ import DBImage from "@/assets/images/landing/dbLight.svg"
           >
         </div>
       </button>
+        
+      </div>
+      <!-- the sidebar chat will be inserted into this div -->
+      <div id="ikp-sidebar-chat-target"></div>
+      </div>
+      <script type="module">
+      const config = {
+        baseSettings: {
+          apiKey: "7c390e262ac8858df0b6624d01d9dfef",
+        },
+        aiChatSettings: {
+          exampleQuestions: ["How do I get started?"],
+        },
+      };
+
+      // Initialize the widget
+      const widget = Inkeep.SidebarChat("#ikp-sidebar-chat-target", config);
+    </script>
+    <!-- End Quickstart chat code -->
+
     </div>
   </div>
   <div class="header-middle-container">
@@ -210,36 +239,7 @@ import DBImage from "@/assets/images/landing/dbLight.svg"
     placeholder: "Search documentation...",
   });
 </script>
-<script type="module">
-  const config = {
-    position: "left",
-    baseSettings: {
-      appId: "MXZNUT59HV",
-      apiKey: "7c390e262ac8858df0b6624d01d9dfef",
-      indexName: "orm-drizzle",
-      },
-    aiChatSettings: {
-    aiAssistantName: "Support Assistant",
-    introMessage: "👋 Hi! How can I help you today?",
-  },
-  };
 
-  // Initialize the widget
-  const widget = Inkeep.SidebarChat("#ikp-sidebar-chat-target", config);
-</script>
-<script type="module">
-  const config = {
-    baseSettings: {
-      apiKey: "YOUR_API_KEY",
-    },
-    aiChatSettings: {
-      exampleQuestions: ["How do I get started?"],
-    },
-  };
-
-  // Initialize the widget
-  const widget = Inkeep.SidebarChat("#ikp-sidebar-chat-target", config);
-</script>
 
 <script src="./snake/index.ts"></script>
 
